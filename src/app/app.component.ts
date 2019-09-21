@@ -14,6 +14,7 @@ export class AppComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '350px',
+      minHeight: '400px',
       data: {}
     });
 

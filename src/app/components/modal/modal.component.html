@@ -1,8 +1,12 @@
-<h1 mat-dialog-title>Hi {{data.name}} Test</h1>
-<div mat-dialog-content>
-    <zxing-scanner></zxing-scanner>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+<div fxFlexFill fxLayout="column">
+    <h1 mat-dialog-title fxFlex>Hi {{data.name}} Test</h1>
+    <div mat-dialog-content fxFlex="80">
+        <mat-spinner *ngIf="!found"></mat-spinner>
+        <zxing-scanner [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']" (camerasFound)="test()"
+            (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+    </div>
+    <div fxFlex="15" class="bottom">
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+    </div>
 </div>
