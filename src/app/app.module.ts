@@ -13,7 +13,12 @@ import {
   MatProgressSpinnerModule,
   MatTooltipModule,
   MatRippleModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatFormField,
+  MatFormFieldModule,
+
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ModalComponent } from './components/modal/modal.component';
@@ -42,7 +47,10 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     FlexLayoutModule,
     MatRippleModule,
     MatDialogModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
   ],
   providers: [],
   entryComponents: [

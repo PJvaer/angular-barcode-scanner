@@ -1,9 +1,15 @@
 <div fxFlexFill fxLayout="column">
-    <h1 mat-dialog-title fxFlex>Hi {{data.name}} Test</h1>
+    <h1 mat-dialog-title fxFlex>Please scan your barcode</h1>
+    <mat-form-field>
+        <mat-label>Select a camera</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option *ngFor="let camera of cameras" value="camera">{{camera.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
     <div mat-dialog-content fxFlex="80">
         <mat-spinner *ngIf="!found"></mat-spinner>
-        <zxing-scanner [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']" (camerasFound)="test()"
-            (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+        <zxing-scanner [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']" (camerasFound)="setCameras($event)"
+            (scanSuccess)="scanSuccessHandler($event)" [(device)]="selected"></zxing-scanner>
     </div>
     <div fxFlex="15" class="bottom">
         <button mat-button (click)="onNoClick()">No Thanks</button>

@@ -7,7 +7,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  found: boolean;
+  public found: boolean;
+  public showSettings: boolean;
+  public selected: any;
+  public cameras: any[];
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -20,8 +23,11 @@ export class ModalComponent {
     console.log(event);
   }
 
-  public test() {
+  public setCameras(event) {
     this.found = true;
+    this.cameras = event;
+    console.log(event)
+    this.selected = this.cameras[0].deviceId;
   }
 
   public scanSuccessHandler($event) {
