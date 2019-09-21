@@ -12,15 +12,20 @@ import {
   MatButtonModule,
   MatProgressSpinnerModule,
   MatTooltipModule,
-  MatRippleModule
+  MatRippleModule,
+  MatDialogModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ModalComponent } from './components/modal/modal.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatProgressSpinnerModule,
     MatTooltipModule,
     FlexLayoutModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
+    ZXingScannerModule
   ],
   providers: [],
+  entryComponents: [
+    ModalComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
