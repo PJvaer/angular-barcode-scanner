@@ -9,6 +9,7 @@ import { ModalComponent } from './components/modal/modal.component';
 })
 export class AppComponent {
   public title = 'angular-barcode-scanner';
+  public codes = [];
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
@@ -19,8 +20,7 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.codes.push(result);
     });
   }
-
 }

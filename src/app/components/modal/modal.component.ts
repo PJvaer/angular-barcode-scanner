@@ -19,10 +19,6 @@ export class ModalComponent {
     this.dialogRef.close();
   }
 
-  onSucces(event) {
-    console.log(event);
-  }
-
   public setCameras(event) {
     this.found = true;
     this.cameras = event;
@@ -30,8 +26,8 @@ export class ModalComponent {
     this.selected = this.cameras[0].deviceId;
   }
 
-  public scanSuccessHandler($event) {
-    alert($event);
+  public scanSuccessHandler(barcode) {
+    this.dialogRef.close(barcode);
   }
   public scanErrorHandler($event) {
     alert($event);

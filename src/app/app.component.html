@@ -3,4 +3,5 @@
 
 <div fxFlexFill class="home pointer" matRipple matRippleCentered="centered" (click)="openDialog()">
   <img matRipple fxFlex="40" src="./assets/scanner.svg">
+  <span *ngFor="let code of codes">{{code}}</span>
 </div>
